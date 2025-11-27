@@ -1,0 +1,4 @@
+# Base runtime dependencies
+python-dotenv==1.2.1
+packaging==25.0
+typing_extensions==4.15.0
