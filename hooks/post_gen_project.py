@@ -14,6 +14,13 @@ FEATURES = {
             os.path.join(BASE_DIR, "{{ cookiecutter.project_slug }}", "setup.py"),
         ],
     },
+    "mkdocs": {
+        "flag": "{{ cookiecutter.use_mkdocs }}",
+        "paths": [
+            os.path.join(BASE_DIR, "mkdocs.yml"),
+            os.path.join(BASE_DIR, "docs"),
+        ]
+    }
     # Add more features here later ...
 }
 
@@ -32,6 +39,10 @@ def main():
     # Celery
     if FEATURES["celery"]["flag"].lower() != "y":
         remove_paths(FEATURES["celery"]["paths"])
+
+    # MKDocs
+    if FEATURES["mkdocs"]["flag"].lower() != "y":
+        remove_paths(FEATURES["mkdocs"]["paths"])
 
 
 if __name__ == "__main__":

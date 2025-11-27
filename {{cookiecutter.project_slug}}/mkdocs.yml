@@ -1,0 +1,66 @@
+site_name: {{ cookiecutter.project_name }}
+
+theme:
+  logo: assets/logo.svg
+  favicon: assets/favicon.png
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: blue
+    - scheme: slate
+      primary: indigo
+      accent: blue
+
+  font:
+    text: Inter
+    code: Fira Code
+
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.path
+    - navigation.instant
+    - navigation.expand
+    - toc.integrate
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tooltips
+
+nav:
+  - Home: index.md
+  - Business:
+      - Problem: business/problem.md
+  - Model:
+      - Preprocessing: model/preprocessing.md
+      - Training: model/training.md
+      - Evaluation: model/evaluation.md
+      - Model Description: model/model.md
+  - Engineering:
+      - Pipeline: engineering/pipeline.md
+      - Deployment: engineering/deployment.md
+  - API: api/reference.md
+  - Glossary: glossary.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - .
+          options:
+            show_source: false
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.highlight
+  - pymdownx.emoji

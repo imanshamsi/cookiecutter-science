@@ -16,5 +16,7 @@
   "use_pandas": "y",
   "use_ipython": "y",
 
-  "use_celery": "y"
+  "use_celery": "y",
+
+  "use_mkdocs": "y"
 }
