@@ -14,3 +14,12 @@ pandas==2.3.3
 pytz==2025.2
 tzdata==2025.2
 {% endif %}
+
+{% if cookiecutter.use_celery == "y" %}
+# Celery
+celery==5.5.3
+amqp==5.3.1
+billiard==4.2.3
+kombu==5.5.4
+vine==5.1.0
+{% endif %}

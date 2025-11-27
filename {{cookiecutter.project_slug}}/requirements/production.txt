@@ -1,1 +1,7 @@
 -r base.txt
+
+{% if cookiecutter.use_celery == "y" %}
+# Redis
+async-timeout==5.0.1
+redis==7.1.0
+{% endif %}

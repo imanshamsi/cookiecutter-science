@@ -14,5 +14,7 @@
 
   "use_numpy": "y",
   "use_pandas": "y",
-  "use_ipython": "y"
+  "use_ipython": "y",
+
+  "use_celery": "y"
 }

@@ -25,3 +25,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_TZ = True
+
+{% if cookiecutter.use_celery == "y" %}
+from config.celery import *
+{% endif %}

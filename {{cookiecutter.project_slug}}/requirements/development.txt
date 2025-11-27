@@ -1,5 +1,13 @@
 -r base.txt
 
+{% if cookiecutter.use_celery == "y" %}
+# Flower (celery monitoring dashboard)
+flower==2.0.1
+humanize==4.14.0
+prometheus_client==0.23.1
+tornado==6.5.2
+{% endif %}
+
 {% if cookiecutter.use_ipython == "y" %}
 # IPython
 ipython==8.37.0
