@@ -2,3 +2,15 @@
 python-dotenv==1.2.1
 packaging==25.0
 typing_extensions==4.15.0
+
+{% if cookiecutter.use_numpy == "y" %}
+# NumPy
+numpy==2.2.6
+{% endif %}
+
+{% if cookiecutter.use_pandas == "y" %}
+# Pandas
+pandas==2.3.3
+pytz==2025.2
+tzdata==2025.2
+{% endif %}
