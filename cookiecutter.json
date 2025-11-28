@@ -17,6 +17,7 @@
   "use_ipython": "y",
 
   "use_celery": "y",
+  "use_pytest": "y",
 
   "use_mkdocs": "y"
 }

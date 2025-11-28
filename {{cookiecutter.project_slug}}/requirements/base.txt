@@ -24,6 +24,15 @@ kombu==5.5.4
 vine==5.1.0
 {% endif %}
 
+{% if cookiecutter.use_pytest == "y" %}
+# Pytest
+pytest==9.0.1
+iniconfig==2.3.0
+pluggy==1.6.0
+tomli==2.3.0
+exceptiongroup==1.3.1
+{% endif %}
+
 {% if cookiecutter.use_mkdocs == "y" %}
 # MkDocs documentation system
 mkdocs==1.6.1

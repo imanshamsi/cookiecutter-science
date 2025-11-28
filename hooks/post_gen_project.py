@@ -20,6 +20,13 @@ FEATURES = {
             os.path.join(BASE_DIR, "mkdocs.yml"),
             os.path.join(BASE_DIR, "docs"),
         ]
+    },
+    "pytest": {
+        "flag": "{{ cookiecutter.use_pytest }}",
+        "paths": [
+            os.path.join(BASE_DIR, "pytest.ini"),
+            os.path.join(BASE_DIR, "{{ cookiecutter.project_slug }}", "tests"),
+        ]
     }
     # Add more features here later ...
 }
@@ -43,6 +50,10 @@ def main():
     # MKDocs
     if FEATURES["mkdocs"]["flag"].lower() != "y":
         remove_paths(FEATURES["mkdocs"]["paths"])
+
+    # Pytest
+    if FEATURES["pytest"]["flag"].lower() != "y":
+        remove_paths(FEATURES["pytest"]["paths"])
 
 
 if __name__ == "__main__":
