@@ -7,7 +7,7 @@ from config.env import BASE_DIR, load_environment, get_env
 load_environment(os.path.join(BASE_DIR, '.env'))
 
 # Set application domain name
-APP_DOMAIN = get_env(key='APP_DOMAIN', default='APP')
+APP_DOMAIN = get_env(key='APP_DOMAIN', default='{{ cookiecutter.project_slug }}')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
