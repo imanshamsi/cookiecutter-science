@@ -24,6 +24,12 @@ kombu==5.5.4
 vine==5.1.0
 {% endif %}
 
+{% if cookiecutter.use_alchemy == "y" %}
+# SQL Alchemy
+SQLAlchemy==2.0.44
+typing_extensions==4.15.0
+{% endif %}
+
 {% if cookiecutter.use_pytest == "y" %}
 # Pytest
 pytest==9.0.1

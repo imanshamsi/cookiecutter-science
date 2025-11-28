@@ -27,6 +27,13 @@ FEATURES = {
             os.path.join(BASE_DIR, "pytest.ini"),
             os.path.join(BASE_DIR, "{{ cookiecutter.project_slug }}", "tests"),
         ]
+    },
+    "alchemy": {
+        "flag": "{{ cookiecutter.use_alchemy }}",
+        "paths": [
+            os.path.join(BASE_DIR, "{{ cookiecutter.project_slug }}", "db"),
+            os.path.join(BASE_DIR, "{{ cookiecutter.project_slug }}", "common", "models.py"),
+        ]
     }
     # Add more features here later ...
 }
@@ -54,6 +61,10 @@ def main():
     # Pytest
     if FEATURES["pytest"]["flag"].lower() != "y":
         remove_paths(FEATURES["pytest"]["paths"])
+
+    # SQL Alchemy
+    if FEATURES["alchemy"]["flag"].lower() != "y":
+        remove_paths(FEATURES["alchemy"]["paths"])
 
 
 if __name__ == "__main__":

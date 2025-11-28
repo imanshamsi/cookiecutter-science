@@ -18,6 +18,7 @@
 
   "use_celery": "y",
   "use_pytest": "y",
+  "use_alchemy": "y",
 
   "use_mkdocs": "y"
 }
