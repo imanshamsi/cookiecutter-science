@@ -20,6 +20,7 @@ theme:
     - navigation.top
     - navigation.tabs
     - navigation.path
+    - navigation.sections
     - navigation.instant
     - navigation.expand
     - toc.integrate
@@ -41,18 +42,26 @@ nav:
   - Engineering:
       - Pipeline: engineering/pipeline.md
       - Deployment: engineering/deployment.md
-  - API: api/reference.md
+  - API Reference:
+      - Selectors: api/selectors.md
+      - Services: api/services.md
+      - Models: api/models.md
+      - Tasks: api/tasks.md
   - Glossary: glossary.md
 
 plugins:
   - search
   - mkdocstrings:
+      default_handler: python
       handlers:
         python:
-          paths:
-            - .
           options:
-            show_source: false
+            show_source: true
+            show_signature: true
+            members: true
+            filters:
+              - "!^_"
+            show_submodules: true
 
 markdown_extensions:
   - toc:

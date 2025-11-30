@@ -1,6 +1,4 @@
-# Cookiecutter for Data Science Teams
-
-### Quick Start
+# Quick Start
 
 **Install Cookiecutter**
 
