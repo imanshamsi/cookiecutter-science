@@ -20,5 +20,9 @@
   "use_pytest": "y",
   "use_alchemy": "y",
 
-  "use_mkdocs": "y"
+  "use_mkdocs": "y",
+
+  "_copy_without_render": [
+    "integrations/**"
+  ]
 }
