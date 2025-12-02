@@ -45,14 +45,14 @@ timezone = 'UTC'
 
 # Explicit list of task modules for Celery to import in place of autodiscovery.
 TASK_APPS = [
-    'app.tasks.example',
+    '{{ cookiecutter.project_slug }}.tasks.example',
     # Add more tasks file here
 ]
 
 # Schedule tasks using beat
 beat_schedule = {
     'task1': {
-        'task': 'app.tasks.task1',
+        'task': 'task1',
         'schedule': crontab(hour=1, minute=0),
         'args': (),
         'options': {}
