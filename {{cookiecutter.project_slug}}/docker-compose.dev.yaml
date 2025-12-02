@@ -1,0 +1,40 @@
+services:
+  redis:
+    image: redis:7.2-bookworm
+    environment:
+      - TZ=${TZ}
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  flower:
+    image: mher/flower:2.0.0
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - TZ=${TZ}
+      - FLOWER_UNAUTHENTICATED_API=true
+      - CELERY_BROKER_URL=redis://${CELERY_BROKER_LOCATION}:6379
+    command: celery flower -l info --persistent=True
+    ports:
+      - "5555:5555"
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/local.Dockerfile
+    environment:
+      - TZ=${TZ}
+    command: ./docker/scripts/worker_entrypoint.sh
+    restart: unless-stopped
+
+  schedule:
+    build:
+      context: .
+      dockerfile: docker/local.Dockerfile
+    environment:
+      - TZ=${TZ}
+    command: ./docker/scripts/beat_entrypoint.sh
+    restart: unless-stopped
