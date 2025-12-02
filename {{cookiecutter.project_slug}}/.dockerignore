@@ -177,6 +177,7 @@ mkdocs.yml
 # Docker files
 docker/local.Dockerfile
 docker/production.Dockerfile
+docker-compose.yaml
 docker-compose.dev.yaml
 
 # Miscellaneous files

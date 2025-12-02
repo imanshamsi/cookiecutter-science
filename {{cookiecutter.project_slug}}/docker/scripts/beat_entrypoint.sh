@@ -4,4 +4,4 @@ set -e
 
 # create celery scheduler
 echo "--> Start beat scheduler ..."
-celery -A {{ cookiecutter.project_slug }} beat --loglevel=debug
+celery -A {{ cookiecutter.project_slug }}.setup beat --loglevel=debug

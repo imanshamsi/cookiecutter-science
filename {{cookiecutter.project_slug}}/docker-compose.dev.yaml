@@ -10,8 +10,7 @@ services:
   flower:
     image: mher/flower:2.0.0
     depends_on:
-      redis:
-        condition: service_healthy
+      - redis
     environment:
       - TZ=${TZ}
       - FLOWER_UNAUTHENTICATED_API=true

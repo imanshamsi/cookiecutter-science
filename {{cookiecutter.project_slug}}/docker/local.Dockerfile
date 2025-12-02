@@ -9,6 +9,6 @@ ADD requirements/ requirements/
 RUN pip install -r requirements/development.txt
 
 # copy project to docker container
-RUN mkdir/app
+RUN mkdir /app
 WORKDIR /app
 ADD ./ /app/

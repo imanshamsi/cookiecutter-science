@@ -1,0 +1,55 @@
+volumes:
+  redis-data:
+
+networks:
+  default:
+    name: {{ cookiecutter.project_slug }}
+    driver: bridge
+
+services:
+  redis:
+    image: redis:7.2-bookworm
+    environment:
+      - TZ=${TZ}
+    expose:
+      - "6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - default
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "PING"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/production.Dockerfile
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - TZ=${TZ}
+    networks:
+      - default
+    command: ./docker/scripts/worker_entrypoint.sh
+    restart: unless-stopped
+
+  schedule:
+    build:
+      context: .
+      dockerfile: docker/production.Dockerfile
+    depends_on:
+      redis:
+        condition: service_healthy
+      worker:
+        condition: service_started
+    environment:
+      - TZ=${TZ}
+    networks:
+      - default
+    command: ./docker/scripts/beat_entrypoint.sh
+    restart: unless-stopped
