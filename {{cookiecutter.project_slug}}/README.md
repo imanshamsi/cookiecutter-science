@@ -33,6 +33,7 @@ The rules ensure that:
 ### 1. Create & activate a virtual environment
 
 ```bash
+cd {{ cookiecutter.project_slug }}/
 virtualenv -p python3.10 venv
 source venv/bin/activate
 pip install -r requirements_dev.txt

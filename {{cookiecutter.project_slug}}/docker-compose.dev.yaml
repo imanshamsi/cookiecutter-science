@@ -20,21 +20,3 @@ services:
     ports:
       - "5555:5555"
     restart: unless-stopped
-
-  worker:
-    build:
-      context: .
-      dockerfile: docker/local.Dockerfile
-    environment:
-      - TZ=${TZ}
-    command: ./docker/scripts/worker_entrypoint.sh
-    restart: unless-stopped
-
-  schedule:
-    build:
-      context: .
-      dockerfile: docker/local.Dockerfile
-    environment:
-      - TZ=${TZ}
-    command: ./docker/scripts/beat_entrypoint.sh
-    restart: unless-stopped

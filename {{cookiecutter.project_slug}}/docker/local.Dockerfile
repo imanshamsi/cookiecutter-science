@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 
 # installing all python dependencies
 ADD requirements/ requirements/
-RUN pip install -r requirements/local.txt
+RUN pip install -r requirements/development.txt
 
 # copy project to docker container
 RUN mkdir/app
