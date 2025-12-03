@@ -78,11 +78,11 @@ libs/jdbc/mssql-jdbc-13.2.1.jre11.jar
 ```python
 ConnectionConfig(
     driver="jdbc",
-    host="192.168.30.78",
-    database="DataDb",
+    host="192.168.10.20",
+    database="database",
     username="username",
     password="password",
-    port=6985,
+    port=1433,
     options={ ... }
 )
 ```
@@ -162,9 +162,9 @@ JDBC_JAR = "/lib/jdbc/mssql-jdbc-13.2.1.jre11.jar"
 
 config = ConnectionConfig(
     driver="jdbc",
-    host="192.168.30.78",
-    port=6985,
-    database="DataDb",
+    host="192.168.10.20",
+    port=1433,
+    database="database",
     username="username",
     password="password",
     options={
