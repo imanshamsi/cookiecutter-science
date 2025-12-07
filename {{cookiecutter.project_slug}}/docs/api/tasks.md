@@ -1,3 +1,3 @@
 # Tasks
 
-::: {{ cookiecutter.project_name }}.tasks
+::: {{ cookiecutter.project_slug }}.tasks

@@ -1,3 +1,3 @@
 # Models
 
-::: {{ cookiecutter.project_name }}.db.models
+::: {{ cookiecutter.project_slug }}.db.models

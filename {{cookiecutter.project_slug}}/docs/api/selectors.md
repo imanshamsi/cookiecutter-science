@@ -1,3 +1,3 @@
 # Selectors
 
-::: {{ cookiecutter.project_name }}.selectors
+::: {{ cookiecutter.project_slug }}.selectors

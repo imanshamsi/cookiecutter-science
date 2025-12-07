@@ -1,3 +1,3 @@
 # Services
 
-::: {{ cookiecutter.project_name }}.services
+::: {{ cookiecutter.project_slug }}.services
