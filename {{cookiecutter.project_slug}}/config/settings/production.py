@@ -1,3 +1,3 @@
 from .base import *
 
-DEBUG = False
+DEBUG = get_env("DEBUG", default=False , required=False)

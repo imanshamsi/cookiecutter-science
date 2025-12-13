@@ -10,7 +10,7 @@ load_environment(os.path.join(BASE_DIR, '.env.example'))
 APP_DOMAIN = get_env(key='APP_DOMAIN', default='{{ cookiecutter.project_slug }}')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  os.getenv("DEBUG")
+DEBUG = os.getenv("DEBUG", "True")
 
 # Database
 DATABASES = {
@@ -26,6 +26,6 @@ TIME_ZONE = 'UTC'
 
 USE_TZ = True
 
-{% if cookiecutter.use_celery == "y" %}
-from config.celery import *
-{% endif %}
+# {% if cookiecutter.use_celery == "y" %}
+# from config.celery import *
+# {% endif %}
