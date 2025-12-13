@@ -4,13 +4,13 @@ from config.env import BASE_DIR, load_environment, get_env
 
 
 # Load application environments from .env
-load_environment(os.path.join(BASE_DIR, '.env'))
+load_environment(os.path.join(BASE_DIR, '.env.example'))
 
 # Set application domain name
 APP_DOMAIN = get_env(key='APP_DOMAIN', default='{{ cookiecutter.project_slug }}')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  os.getenv("DEBUG")
 
 # Database
 DATABASES = {
