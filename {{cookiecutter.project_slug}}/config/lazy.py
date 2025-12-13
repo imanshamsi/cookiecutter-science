@@ -1,8 +1,7 @@
 from typing import Any
-
-from .settings.base import DEBUG
+import os 
 from .loader import Settings
-from config.env import load_environment, get_env
+from config.env import load_environment, get_env, BASE_DIR
 
 
 class LazySettings:
@@ -14,9 +13,11 @@ class LazySettings:
         if self._wrapped is not None:
             return
         
-        env = get_env("APP_ENV", "dev")
+        load_environment(os.path.join(BASE_DIR, '.env.example'))
+
+        dev_mode = get_env("DEV_MODE", "True").lower() in ("true", "1", "yes")
         self._settings_module = (
-            "config.settings.production" if env == "prod" else "config.settings.development"
+            "config.settings.production" if not dev_mode else "config.settings.development"
         )
         self._wrapped = Settings(self._settings_module)
 
